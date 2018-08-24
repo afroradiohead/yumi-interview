@@ -14,9 +14,7 @@ import {TypeOrmModule} from '@nestjs/typeorm';
           password: process.env.DB_PASSWORD,
           database: process.env.DB_DATABASE,
           entities: [`${__dirname}/models/*.entity{.ts,.js}`],
-          extra: {
-              ssl: true,
-          },
+          ssl: 'Amazon RDS',
       }),
   ],
   controllers: [AppController, OrdersController],
