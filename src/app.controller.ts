@@ -1,12 +1,11 @@
-import {Controller, Get} from '@nestjs/common';
+import {Controller, Get, Res} from '@nestjs/common';
 
 @Controller()
 export class AppController {
   constructor() {}
 
   @Get()
-  root(): string {
-    return '';
-    // return this.appService.root();
+  root(@Res() res) {
+      res.render('app');
   }
 }
