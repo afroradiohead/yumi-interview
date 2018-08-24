@@ -76,3 +76,4 @@ typings/
 .idea
 .nestcli.json
 .prettierrc
+dist
