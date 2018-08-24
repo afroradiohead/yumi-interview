@@ -4,15 +4,6 @@ import {AppService} from './app.service';
 import {OrdersController} from './api/v1/orders.controller';
 import {TypeOrmModule} from '@nestjs/typeorm';
 
-console.log({
-    type: 'mysql',
-    host: process.env.DB_HOST,
-    port: +(process.env.DB_PORT),
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-    entities: [`${__dirname}/models/*.entity{.ts,.js}`],
-});
 @Module({
   imports: [
       TypeOrmModule.forRoot({
@@ -23,6 +14,7 @@ console.log({
           password: process.env.DB_PASSWORD,
           database: process.env.DB_DATABASE,
           entities: [`${__dirname}/models/*.entity{.ts,.js}`],
+          extra: { ssl: 'Amazon RDS' },
       }),
   ],
   controllers: [AppController, OrdersController],
